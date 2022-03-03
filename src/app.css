@@ -1,0 +1,160 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: red;
+}
+.app{
+    width: 100vw;
+    height: 100vh;
+
+}
+.container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.left{
+    flex: 2.5;
+    background: url('./assets/bg.jpg');
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+}
+.left-top{
+    flex: 1.5;
+    position: relative;
+    
+}
+.left-top p{
+    width: 80px;
+    height: 80px;
+    font-size: 58px;
+    color: white;
+    position: relative;
+    top: 60%;
+    left: 15%;
+    padding: 15px;
+    background-color: black;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.left-bottom{
+flex: 1;
+}
+
+.left-bottom .text-qts{
+    width: 80%;
+    background: linear-gradient(90deg, rgba(2,0,36,1) 1%, rgba(7,53,150,1) 47%, rgba(9,9,121,1) 84%, rgba(0,212,255,1) 100%);
+    margin: 0 auto;
+    padding: 25px 10px;
+    border-radius: 3px;
+    display: flex;
+    justify-content:center;
+    margin-bottom: 10px;
+}
+.left-bottom .text-qts p{
+    color: white;
+    font-weight: bolder;
+    font-size: 28px;
+}
+
+.left-bottom .text-ans{
+    width: 80%;
+    margin: 0 auto;
+    background: linear-gradient(90deg, rgba(2,0,36,1) 1%, rgba(7,53,150,1) 47%, rgba(9,9,121,1) 84%, rgba(0,212,255,1) 100%);
+    border-radius: 3px;
+    justify-content:center;
+    /* grid-template-columns: repeat(auto-fill, 300px); */
+    height: 210px;
+    display: flex;
+    flex-direction: row;
+    border: 2px solid black;
+    
+}
+.left-bottom .text-ans div{
+     width: 100%;
+   
+     display: flex;  
+     flex-direction: column;
+}
+.left-bottom .text-ans div .p {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 28px;
+    background: linear-gradient(90deg, rgba(2,0,36,1) 1%, rgba(7,53,150,1) 17%, rgba(9,9,121,1) 84%, rgba(0,212,255,1) 100%);
+    border: 2px solid black;
+    cursor: pointer;
+}
+.left-bottom .text-ans .p:hover, 
+.left-bottom .text-ans .p.active
+{
+    background: linear-gradient(90deg, rgb(171, 169, 200) 1%, rgb(98, 129, 195) 17%, rgb(90, 90, 204) 84%, rgb(11, 47, 54) 100%);
+}
+
+.left-bottom .text-ans .p.correctAns{
+  animation: correctAnimation 3s ease forwards;
+}
+.left-bottom .text-ans .p.wrongAns{
+    animation: wrongAnmiation 3s ease forwards;
+  }
+
+@keyframes correctAnimation {
+    0%,22%,42%{
+        background: aqua;
+    }
+    20%,40%,60%{
+        background: blue;
+    }
+    62%, 100%{
+        background: green;
+    }
+}
+
+  @keyframes wrongAnmiation {
+    0%,22%,42%{
+        background: aqua;
+    }
+    20%,40%,60%{
+        background: blue;
+    }
+    62%, 100%{
+        background: crimson;
+    }
+}
+
+
+.right{
+    flex: 1;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 1%, rgba(7,53,150,1) 17%, rgba(9,9,121,1) 84%, rgba(0,212,255,1) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.right .div{
+    display: flex;
+    padding-left: 15px;
+    line-height: 2;
+    
+}
+.active{
+    background-color: rgb(87, 148, 148);
+    border-radius: 3px;
+}
+.right .div p, .right .div span{
+    font-size: 26px;
+    color: white;
+}
+.right .div p{
+    margin-right: 25px;
+}
+
+
