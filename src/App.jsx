@@ -3,17 +3,49 @@ import Start from "./componenet/Start";
 import "./app.css"
 import { QuizData } from "./Data";
 import { Moneyparm } from "./Data";
+import WinGame from "./componenet/WinGame";
 function App() {
   const [username, setUsername] = useState(null);
-  const [curretQte, setCurretQte] = useState(QuizData[1]);
+  const [curretQte, setCurretQte] = useState(QuizData[0]);
   const [classname, setClassname] = useState("p");
+  const [currentAnswer, setCurrentAnswer] = useState(null);
+  const [winGame, setWinGame] = useState(false);
+  const [correctAnswer, setCorrectAnswer] = useState(false);
+  const ansBtns =[0,1,2,3]
 
+ 
   const  handleClick =(val)=>{
-    setTimeout(()=>{
-      setClassname( curretQte.answer[val].correct ? "p correctAns" : "p wrongAns " )
-      alert(curretQte.answer[val].correct)
+    
+      setCurrentAnswer(val);
+       setClassname(curretQte.answer[val].correct ? "p correctAns" : "p wrongAns " );
+       if(curretQte.answer[val].correct ){
+         setCorrectAnswer(true)
+       }
+       
+    
 
-    },500)
+  }
+ 
+
+  const nextQuestion =()=>{
+    let value = curretQte.id;
+    setClassname('p')
+    if(correctAnswer){
+      setCurretQte(QuizData[value])
+          value++;
+          if(value == QuizData.length+1 ){
+          setWinGame(true)
+          }
+      setCorrectAnswer(false)
+
+    }else{
+      console.log("not");
+    }
+  
+  }
+
+  if(winGame){
+      return <WinGame/>
   }
   
   return (
@@ -25,6 +57,8 @@ function App() {
           <div className="left">
             <div className="left-top"> 
             <p >0</p>
+            <button  onClick={nextQuestion} className="nextQuestion" >Next</button>
+         
              </div>
             <div className="left-bottom">
               <div className="text-qts">
@@ -32,14 +66,18 @@ function App() {
               </div>
 
               <div className="text-ans">
-                <div>
-                <p onClick={()=> handleClick(0)} className={curretQte.answer[0].correct == true ? classname : "p"} > {curretQte.answer[0].text} </p>
-                <p onClick={()=> handleClick(1)} className={curretQte.answer[1].correct == true ? classname : "p"} > {curretQte.answer[1].text} </p>
-                </div>
-                <div>
-                <p onClick={()=> handleClick(2)} className={curretQte.answer[2].correct == true ? classname : "p"} > {curretQte.answer[2].text} </p>
-                <p onClick={()=> handleClick(3)} className={curretQte.answer[3].correct == true ? classname : "p"} > {curretQte.answer[3].text} </p>
-                </div>
+                  {
+                    
+                    ansBtns.map((val)=>(
+                      
+                      
+                      <li onClick={()=>handleClick(val )} className={ val === currentAnswer? classname : "p"}> {curretQte.answer[val].text} </li>
+                      
+                      
+                      
+                    ))
+                  }
+           
               </div>
             </div>
           </div>
@@ -48,7 +86,7 @@ function App() {
           <div className="right">
             { Moneyparm.map((val)=>(
               <div className={curretQte.id == val.id ? "div active" : "div"} >
-                <p> {val.id} </p>
+                <p > {val.id} </p>
                 <span> {val.money} </span>
               </div>
             )) }
@@ -65,3 +103,18 @@ function App() {
 }
 
 export default App;
+
+
+ 
+// let value = curretQte.id +1;
+// console.log(value);
+// if(curretQte.answer[val].correct ){
+//   setCurretQte(QuizData[value])
+//   value++;
+//   if(value == 4){
+//    setWinGame(true)
+//   }
+//  }
+//  else{   
+//  }
+//  setClassname('p')

@@ -25,7 +25,28 @@
 .left-top{
     flex: 1.5;
     position: relative;
+    display: flex;
+    flex-direction: row;
     
+}
+.nextQuestion {
+    position: fixed;
+    top: 37%;
+    right: 33%;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    font-size: 23px;
+    cursor: pointer;
+    color: white;
+    background-color: black;
+}
+ .nextQuestion:hover{
+    transform: scale(1.1);
+}
+
+.left-top button:hover{
+    transform: scale(1.1);
 }
 .left-top p{
     width: 80px;
@@ -75,13 +96,13 @@ flex: 1;
     border: 2px solid black;
     
 }
-.left-bottom .text-ans div{
+.left-bottom .text-ans {
      width: 100%;
    
      display: flex;  
      flex-direction: column;
 }
-.left-bottom .text-ans div .p {
+.left-bottom .text-ans .p {
     flex: 1;
     display: flex;
     align-items: center;
@@ -92,6 +113,9 @@ flex: 1;
     border: 2px solid black;
     cursor: pointer;
 }
+
+
+
 .left-bottom .text-ans .p:hover, 
 .left-bottom .text-ans .p.active
 {
