@@ -7,7 +7,7 @@ function Timmer({curretQte}) {
     useEffect(()=>{
      
         let interval = null;
-        if(timmer >= 1){
+        if(timmer >= 1 ){
             interval = setInterval(()=>{
                 setTimmer(prev=>prev-1)
             },1000)
@@ -20,7 +20,7 @@ function Timmer({curretQte}) {
     },[timmer])
 
     useEffect(()=>{
-        setTimmer(5);
+        setTimmer(30);
     },[curretQte])
          
     return timmer;

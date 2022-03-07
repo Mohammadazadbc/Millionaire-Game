@@ -37,9 +37,6 @@ function App() {
         },2000)
        
        }
-       
-    
-
   }
  
 
@@ -72,25 +69,23 @@ function App() {
         <div className="container">
           <div className="left">
             <div className="left-top"> 
-            <p > <Timmer curretQte={curretQte} /> </p>
+            <p > <Timmer curretQte={curretQte} correctAnswer={correctAnswer} /> </p>
             <button  onClick={nextQuestion} className="nextQuestion" >Next</button>
          
              </div>
             <div className="left-bottom">
               <div className="text-qts">
+                <img src={curretQte.img} alt="img" />
                 <p>{curretQte.question} </p>
               </div>
 
               <div className="text-ans">
-                  {
-                    
+                  {      
                     ansBtns.map((val)=>(
                       
                       
                       <li onClick={()=>handleClick(val )} className={ val === currentAnswer? classname : "p"}> {curretQte.answer[val].text} </li>
-                      
-                      
-                      
+                                  
                     ))
                   }
            

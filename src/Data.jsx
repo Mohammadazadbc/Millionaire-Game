@@ -2,6 +2,7 @@ export const  QuizData = [
     {
         id:1,
         question:"what is your name ?",
+        img:"https://jeuendroit.com/wp-content/uploads/2021/09/1631649925_PUBG-Mobile-16-date-de-debut-de-Metro-Royale.jpg",
         answer:[
             {
                 text:"azad",
@@ -25,6 +26,7 @@ export const  QuizData = [
          { 
         id:2,
         question:"where do i do my intership ?",
+        img:"https://jeuendroit.com/wp-content/uploads/2021/09/1631649925_PUBG-Mobile-16-date-de-debut-de-Metro-Royale.jpg",
         answer:[
             {
                 text:"byebyerent",
@@ -48,6 +50,7 @@ export const  QuizData = [
         { 
         id:3,
         question:"How old I'm ?",
+        img:"https://jeuendroit.com/wp-content/uploads/2021/09/1631649925_PUBG-Mobile-16-date-de-debut-de-Metro-Royale.jpg",
         answer:[
             {
                 text:"21",
@@ -70,6 +73,7 @@ export const  QuizData = [
          { 
         id:4,
         question:"where do i do my traning ?",
+        img:"https://jeuendroit.com/wp-content/uploads/2021/09/1631649925_PUBG-Mobile-16-date-de-debut-de-Metro-Royale.jpg",
         answer:[
             {
                 text:"he2b",
