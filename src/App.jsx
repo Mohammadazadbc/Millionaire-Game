@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Start from "./componenet/Start";
 import "./app.css"
 import { QuizData } from "./Data";
 import { Moneyparm } from "./Data";
 import WinGame from "./componenet/WinGame";
+import useSound from "use-sound";
+import correctSound from "./sounds/correct.mp3"
+import wrongSound from "./sounds/wrong.mp3"
+import Timmer from "./componenet/Timmer";
 function App() {
   const [username, setUsername] = useState(null);
   const [curretQte, setCurretQte] = useState(QuizData[0]);
@@ -12,7 +16,11 @@ function App() {
   const [winGame, setWinGame] = useState(false);
   const [correctAnswer, setCorrectAnswer] = useState(false);
   const ansBtns =[0,1,2,3]
-
+  const [playCorrect] = useSound(correctSound);
+  const [playWrong] = useSound(wrongSound);
+ 
+    
+  
  
   const  handleClick =(val)=>{
     
@@ -20,6 +28,14 @@ function App() {
        setClassname(curretQte.answer[val].correct ? "p correctAns" : "p wrongAns " );
        if(curretQte.answer[val].correct ){
          setCorrectAnswer(true)
+         setTimeout(()=>{
+           playCorrect();
+         },2000)
+       }else{
+        setTimeout(()=>{
+          playWrong();
+        },2000)
+       
        }
        
     
@@ -56,7 +72,7 @@ function App() {
         <div className="container">
           <div className="left">
             <div className="left-top"> 
-            <p >0</p>
+            <p > <Timmer curretQte={curretQte} /> </p>
             <button  onClick={nextQuestion} className="nextQuestion" >Next</button>
          
              </div>
@@ -106,15 +122,3 @@ export default App;
 
 
  
-// let value = curretQte.id +1;
-// console.log(value);
-// if(curretQte.answer[val].correct ){
-//   setCurretQte(QuizData[value])
-//   value++;
-//   if(value == 4){
-//    setWinGame(true)
-//   }
-//  }
-//  else{   
-//  }
-//  setClassname('p')
